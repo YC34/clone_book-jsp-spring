@@ -5,4 +5,9 @@ spring:
       suffix: .jsp
 
 server:
-  port: 8090
+  port: 8099
+
+
+lhs: 7
+rhs: 6
+op: '*'

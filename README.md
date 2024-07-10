@@ -1,3 +1,20 @@
+# Clone BOOK
+### 참고한 책 : Spring Boot2 Recipes (Martin Deinum)
+
+
+
+
+## INFO
+* Environment
+  * java version : 17
+  * jdk : Temurin-17.0.11+9
+  * Server : tomcat 11.0.0 
+  * os : mac
+  * idle : Intellij
+  * build : maven
+  * DB : 미정
+
+
 ## ISSUE
 * javax -> jakarta로 변경.
   * jstl dependency 변경해줘야함. 
@@ -23,3 +40,4 @@
       <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
     </dependency>
     ~~~
+    
