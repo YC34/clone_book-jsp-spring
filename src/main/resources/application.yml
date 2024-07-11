@@ -4,10 +4,22 @@ spring:
       prefix: /WEB-INF/views/
       suffix: .jsp
 
+
+
 server:
   port: 8099
-
+  error:
+    include-exception: true
+    include-stacktrace: never
+  ssl:
+    key-store: classpath:sb2-recipes.pfx
+    key-store-type: pkcs12
+    key-store-password: password
+    key-password: password
+    key-alias: sb2-recipes
+    enabled: true
 
 lhs: 7
 rhs: 6
 op: '*'
+

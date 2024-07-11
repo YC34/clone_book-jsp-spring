@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -79,7 +80,16 @@ public class BookControllerTest {
 
     @Test
     public void shouldAddBook() throws Exception{
+        Mockito.when(bookService.create(Mockito.any(Book.class))).thenReturn(
+                new Book("123456666","Test Book Stored","T.Author"));
 
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/books")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{ \"isbn\" : \"123456666\"}, \"title\" : \"Test Book\", \"authors\" : [\"T.Author\"]"))
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.header().string("Location",
+                        "http://localhost/books/123456666"));
     }
 
 }

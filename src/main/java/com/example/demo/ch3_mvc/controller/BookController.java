@@ -4,6 +4,7 @@ package com.example.demo.ch3_mvc.controller;
 import com.example.demo.ch3_mvc.entity.Book;
 import com.example.demo.ch3_mvc.service._interfaceFile.BookService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -37,7 +38,10 @@ public class BookController {
         Book created = bookService.create(book);
         URI newBookUrl = uriBuilder.path("/books/{isbn}").build(created.getIsbn());
         return ResponseEntity.created(newBookUrl).body(created);
-
-
     }
+
+
+
+
+
 }
